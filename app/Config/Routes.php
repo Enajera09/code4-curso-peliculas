@@ -12,6 +12,7 @@ use CodeIgniter\Router\RouteCollection;
 //$routes->get('/pelicula/edit/(:num)', 'Pelicula::create/$1');
 
 $routes->presenter('pelicula');
+$routes->presenter('categoria');
 
 
 //$routes->get('/index', 'Home::index'); //listado
