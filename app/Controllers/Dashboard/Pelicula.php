@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controllers;
+namespace App\Controllers\Dashboard;
 
 use App\Controllers\BaseController;
 use App\Models\Pelicula as ModelsPelicula;
@@ -9,11 +9,12 @@ use CodeIgniter\HTTP\ResponseInterface;
 
 class Pelicula extends BaseController
 {
+
     public function show($id)
     {
         $peliculaModelo = new PeliculaModel();
 
-        echo view('pelicula/show', [
+        echo view('dashboard/pelicula/show', [
             'pelicula' => $peliculaModelo->find($id)
         ]);
     }
@@ -27,14 +28,14 @@ class Pelicula extends BaseController
             'descripcion' => $this->request->getPost('descripcion')
         ]);
 
-        echo "creado";
+        return redirect()->to('/dashboard/pelicula');
     }
 
     public function edit($id)
     {
         $peliculaModelo = new PeliculaModel();
 
-        echo view('pelicula/edit', [
+        echo view('dashboard/pelicula/edit', [
             'pelicula' => $peliculaModelo->find($id)
         ]);
     }
@@ -47,7 +48,9 @@ class Pelicula extends BaseController
             'titulo' => $this->request->getPost('titulo'),
             'descripcion' => $this->request->getPost('descripcion'),
         ]);
-        echo "Actualizado";
+
+        return redirect()->back();
+        //return redirect()->to('/dashboard/pelicula');
     }
 
     public function delete($id)
@@ -56,7 +59,7 @@ class Pelicula extends BaseController
 
         $peliculaModelo->delete($id);
 
-        echo "Borrado";
+        return redirect()->back();
     }
 
     public function index()
@@ -64,14 +67,14 @@ class Pelicula extends BaseController
 
         $peliculaModelo = new PeliculaModel();
 
-        echo view('pelicula/index', [
+        echo view('dashboard/pelicula/index', [
             'pelicula' => $peliculaModelo->findAll(),
         ]);
     }
 
     public function new()
     {
-        echo view('pelicula/new', [
+        echo view('dashboard/pelicula/new', [
             'pelicula' => [
                 'titulo' => '',
                 'descripcion' => ''

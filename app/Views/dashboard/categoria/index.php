@@ -4,13 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Peliculas</title>
+    <title>Categorias</title>
 </head>
 
 <body>
-    <h1>Listado de peliculas</h1>
+    <h1>Listado de categorias</h1>
 
-    <a href="/pelicula/new">Crear</a>
+    <a href="/dashboard/categoria/new">Crear</a>
     <table>
         <tr>
             <th>
@@ -20,21 +20,17 @@
                 Titulo
             </th>
             <th>
-                Descripción
-            </th>
-            <th>
                 Opciones
             </th>
         </tr>
-        <?php foreach ($pelicula as $key => $value) : ?>
+        <?php foreach ($categoria as $key => $value) : ?>
             <tr>
                 <td><?= $value['id'] ?></td>
                 <td><?= $value['titulo'] ?></td>
-                <td><?= $value['descripcion'] ?></td>
                 <td>
-                    <a href="/pelicula/show/<?= $value['id'] ?>">Show</a>
-                    <a href="/pelicula/edit/<?= $value['id'] ?>">Edit</a>
-                    <form action="/pelicula/delete/<?= $value['id'] ?>" method="post">
+                    <a href="/dashboard/categoria/show/<?= $value['id'] ?>">Show</a>
+                    <a href="/dashboard/categoria/edit/<?= $value['id'] ?>">Edit</a>
+                    <form action="/dashboard/categoria/delete/<?= $value['id'] ?>" method="post">
                         <button type="submit">Delete</button>
                     </form>
                 </td>
