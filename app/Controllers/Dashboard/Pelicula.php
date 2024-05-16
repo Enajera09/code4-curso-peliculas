@@ -28,6 +28,8 @@ class Pelicula extends BaseController
             'descripcion' => $this->request->getPost('descripcion')
         ]);
 
+        session()->setFlashdata('mensaje', 'Registro creado con exito');
+
         return redirect()->to('/dashboard/pelicula');
     }
 
@@ -49,6 +51,8 @@ class Pelicula extends BaseController
             'descripcion' => $this->request->getPost('descripcion'),
         ]);
 
+        session()->setFlashdata('mensaje', 'Registro actualizado correctamente.');
+
         return redirect()->back();
         //return redirect()->to('/dashboard/pelicula');
     }
@@ -58,6 +62,8 @@ class Pelicula extends BaseController
         $peliculaModelo = new PeliculaModel();
 
         $peliculaModelo->delete($id);
+
+        session()->setFlashdata('mensaje', 'Registro eliminado correctamente.');
 
         return redirect()->back();
     }
