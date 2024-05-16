@@ -1,17 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
+<?= $this->extend('Layouts/dashboard') ?>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Actualizar Categoría</title>
-</head>
-
-<body>
-    <?= view('partials/_session') ?>
-    <form action="/dashboard/categoria/update/<?= $categoria['id'] ?>" method="post">
-        <?= view('dashboard/categoria/_form', ['op' => "Actualizar"]) ?>
-    </form>
-</body>
-
-</html>
+<?= $this->section('contenido') ?>
+<?= view('partials/_session') ?>
+<form action="/dashboard/categoria/update/<?= $categoria['id'] ?>" method="post">
+    <?= view('dashboard/categoria/_form', ['op' => "Actualizar"]) ?>
+</form>
+<?= $this->endSection() ?>

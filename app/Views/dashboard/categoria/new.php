@@ -1,17 +1,10 @@
-<!DOCTYPE html>
-<html lang="es">
+<?= $this->extend('Layouts/dashboard') ?>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crear Categoría</title>
-</head>
+<?= $this->section('contenido') ?>
+<?= view('partials/_session') ?>
 
-<body>
-    <?= view('partials/_session') ?>
-    <form action="/dashboard/categoria/create" method="post">
-        <?= view('dashboard/categoria/_form', ['op' => 'Crear']) ?>
-    </form>
-</body>
+<form action="/dashboard/categoria/create" method="post">
+    <?= view('dashboard/categoria/_form', ['op' => 'Crear']) ?>
+</form>
 
-</html>
+<?= $this->endSection() ?>
