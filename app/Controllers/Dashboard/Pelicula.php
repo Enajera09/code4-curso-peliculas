@@ -14,6 +14,8 @@ class Pelicula extends BaseController
     {
         $peliculaModelo = new PeliculaModel();
 
+        //var_dump($peliculaModelo->find($id));
+
         echo view('dashboard/pelicula/show', [
             'pelicula' => $peliculaModelo->find($id)
         ]);
@@ -93,10 +95,7 @@ class Pelicula extends BaseController
     public function new()
     {
         echo view('dashboard/pelicula/new', [
-            'pelicula' => [
-                'titulo' => '',
-                'descripcion' => ''
-            ]
+            'pelicula' => new PeliculaModel(),
         ]);
     }
 }

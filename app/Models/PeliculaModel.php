@@ -7,6 +7,7 @@ use CodeIgniter\Model;
 class PeliculaModel extends Model
 {
     protected $table            = 'peliculas';
+    protected $returnType = 'object';
     protected $primaryKey = 'id';
-    protected $allowedFields=['titulo', 'descripcion'];
+    protected $allowedFields = ['titulo', 'descripcion'];
 }
