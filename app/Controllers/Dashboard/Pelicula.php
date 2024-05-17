@@ -23,10 +23,17 @@ class Pelicula extends BaseController
     {
         $peliculaModelo = new PeliculaModel();
 
-        $peliculaModelo->insert([
-            'titulo' => $this->request->getPost('titulo'),
-            'descripcion' => $this->request->getPost('descripcion')
-        ]);
+        if ($this->validate('peliculas')) {
+            $peliculaModelo->insert([
+                'titulo' => $this->request->getPost('titulo'),
+                'descripcion' => $this->request->getPost('descripcion'),
+            ]);
+        } else {
+            session()->setFlashdata([
+                'validation' => $this->validator->listErrors(),
+            ]);
+            return redirect()->back()->withInput();
+        }
 
         session()->setFlashdata('mensaje', 'Registro creado con exito');
 
@@ -46,14 +53,19 @@ class Pelicula extends BaseController
     {
         $peliculaModelo = new PeliculaModel();
 
-        $peliculaModelo->update($id, [
-            'titulo' => $this->request->getPost('titulo'),
-            'descripcion' => $this->request->getPost('descripcion'),
-        ]);
+        if ($this->validate('peliculas')) {
+            $peliculaModelo->update($id, [
+                'titulo' => $this->request->getPost('titulo'),
+                'descripcion' => $this->request->getPost('descripcion'),
+            ]);
+        } else {
+            session()->setFlashdata([
+                'validation' => $this->validator->listErrors(),
+            ]);
+            return redirect()->back()->withInput();
+        }
 
         session()->setFlashdata('mensaje', 'Registro actualizado correctamente.');
-
-        return redirect()->back();
         //return redirect()->to('/dashboard/pelicula');
     }
 
