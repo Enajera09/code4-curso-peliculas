@@ -14,7 +14,19 @@ use CodeIgniter\Router\RouteCollection;
 $routes->group('dashboard', function ($routes) {
     $routes->presenter('pelicula', ['controller' => 'Dashboard\Pelicula']);
     $routes->presenter('categoria', ['controller' => 'Dashboard\Categoria']);
+    //*****TEST USUARIOS******
+    //$routes->get('usuario/crear', 'Web\Usuario::crear_usuario');
+    //$routes->get('usuario/probar/contrasena', 'Web\Usuario::probarContrasena');
 });
+
+$routes->get('/login', 'Web\Usuario::login');
+$routes->post('/login_post', 'Web\Usuario::login_post', ['as' => 'usuario.login_post']);
+
+$routes->get('/register', 'Web\Usuario::register');
+$routes->post('/register_post', 'Web\Usuario::register_post', ['as' => 'usuario.register_post']);
+
+$routes->get('/logout', 'Web\Usuario::logout');
+
 //$routes->get('test/(:num)', 'Pelicula::test/$1', ['as' => 'test']);
 
 
