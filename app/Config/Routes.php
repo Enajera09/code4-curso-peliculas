@@ -11,9 +11,15 @@ use CodeIgniter\Router\RouteCollection;
 //$routes->get('/pelicula/new', 'Pelicula::create');
 //$routes->get('/pelicula/edit/(:num)', 'Pelicula::create/$1');
 
+$routes->group('/api', ['namespace' => 'App\Controllers\Api'], function ($routes) {
+    $routes->resource('pelicula');
+    $routes->resource('categoria');
+});
+
 $routes->group('dashboard', function ($routes) {
-    $routes->presenter('pelicula', ['controller' => 'Dashboard\Pelicula']);
-    $routes->presenter('categoria', ['controller' => 'Dashboard\Categoria']);
+    //$routes->presenter('pelicula', ['controller' => 'Dashboard\Pelicula']);
+    //$routes->presenter('categoria', ['controller' => 'Dashboard\Categoria']);
+
     //*****TEST USUARIOS******
     //$routes->get('usuario/crear', 'Web\Usuario::crear_usuario');
     //$routes->get('usuario/probar/contrasena', 'Web\Usuario::probarContrasena');
