@@ -17,8 +17,8 @@ $routes->group('/api', ['namespace' => 'App\Controllers\Api'], function ($routes
 });
 
 $routes->group('dashboard', function ($routes) {
-    //$routes->presenter('pelicula', ['controller' => 'Dashboard\Pelicula']);
-    //$routes->presenter('categoria', ['controller' => 'Dashboard\Categoria']);
+    $routes->presenter('pelicula', ['controller' => 'Dashboard\Pelicula']);
+    $routes->presenter('categoria', ['controller' => 'Dashboard\Categoria']);
 
     //*****TEST USUARIOS******
     //$routes->get('usuario/crear', 'Web\Usuario::crear_usuario');
