@@ -1,40 +1,35 @@
 <?= $this->extend('Layouts/dashboard') ?>
 
 <?= $this->section('header') ?>
-Listado de peliculas
+Listado de etiquetas
 <?= $this->endSection() ?>
 
 <?= $this->section('contenido') ?>
-<a href="/dashboard/pelicula/new">Crear</a>
+<a href="/dashboard/etiqueta/new">Crear</a>
 <table>
     <tr>
         <th>
             Id
         </th>
         <th>
-            Titulo
-        </th>
-        <th>
             Categoría
         </th>
         <th>
-            Descripción
+            Titulo
         </th>
         <th>
             Opciones
         </th>
     </tr>
-    <?php foreach ($pelicula as $key => $value) : ?>
+    <?php foreach ($etiqueta as $key => $value) : ?>
         <tr>
             <td><?= $value->id ?></td>
-            <td><?= $value->titulo ?></td>
             <td><?= $value->categoria ?></td>
-            <td><?= $value->descripcion ?></td>
+            <td><?= $value->titulo ?></td>
             <td>
-                <a href="/dashboard/pelicula/show/<?= $value->id ?>">Show</a>
-                <a href="/dashboard/pelicula/edit/<?= $value->id ?>">Edit</a>
-                <a href="<?= route_to('pelicula.etiquetas', $value->id) ?>">Tags</a>
-                <form action="/dashboard/pelicula/delete/<?= $value->id ?>" method="post">
+                <a href="/dashboard/etiqueta/show/<?= $value->id ?>">Show</a>
+                <a href="/dashboard/etiqueta/edit/<?= $value->id ?>">Edit</a>
+                <form action="/dashboard/etiqueta/delete/<?= $value->id ?>" method="post">
                     <button type="submit">Delete</button>
                 </form>
             </td>
